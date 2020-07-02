@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane>
+         <children>
+            <Pane prefHeight="150.0" prefWidth="300.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="2.0" layoutY="18.0" prefHeight="56.0" prefWidth="294.0" text="DATA INPUT ERROR" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="3.0" layoutY="70.0" prefHeight="32.0" prefWidth="294.0" text="The data to input is invalid." />
+                  <Label alignment="CENTER" layoutX="3.0" layoutY="89.0" prefHeight="32.0" prefWidth="294.0" text="Please input a floating number data." />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

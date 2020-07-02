@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="150.0" prefWidth="300.0" style="-fx-background-color: #ECC5C0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <Label prefHeight="30.0" prefWidth="103.0" text="Enter data:" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </center>
+   <right>
+      <TextField text="Input data to delete" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets right="10.0" />
+         </BorderPane.margin>
+      </TextField>
+   </right>
+   <top>
+      <VBox alignment="CENTER" prefHeight="56.0" prefWidth="300.0" style="-fx-background-color: #C47451;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="84.0" prefWidth="226.0" text="Delete Data">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Label>
+            <Separator prefHeight="25.0" prefWidth="300.0" />
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+      <Button mnemonicParsing="false" style="-fx-background-color: #C47451; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Delete" BorderPane.alignment="CENTER">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</BorderPane>

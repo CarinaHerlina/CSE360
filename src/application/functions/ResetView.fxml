@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="200.0" prefWidth="300.0" style="-fx-background-color: #ECC5C0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <VBox alignment="CENTER" prefHeight="32.0" prefWidth="302.0" style="-fx-background-color: #C47451;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="84.0" prefWidth="226.0" text="Reset">
+               <font>
+                  <Font name="System Bold" size="33.0" />
+               </font>
+            </Label>
+            <Separator prefHeight="25.0" prefWidth="300.0" />
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+      <Button mnemonicParsing="false" style="-fx-background-color: #C47451; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Reset" BorderPane.alignment="CENTER">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+      </Button>
+   </bottom>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <left>
+      <VBox prefHeight="87.0" prefWidth="140.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER_RIGHT" prefHeight="23.0" prefWidth="147.0" text="Number of columns:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="3.0" top="3.0" />
+               </VBox.margin>
+            </Label>
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="91.0" text="Layout">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <RadioButton mnemonicParsing="false" text="Horizontal">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Vertical">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" top="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <right>
+      <VBox prefHeight="23.0" prefWidth="162.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField>
+               <VBox.margin>
+                  <Insets right="10.0" />
+               </VBox.margin>
+            </TextField>
+            <VBox prefHeight="91.0" prefWidth="162.0">
+               <children>
+                  <Label text="Order">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <RadioButton mnemonicParsing="false" text="Ascending">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Descending">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" top="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+</BorderPane>
