@@ -6,12 +6,13 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane minHeight="175.0" prefHeight="175.0" prefWidth="300.0" style="-fx-background-color: #ECC5C0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane minHeight="175.0" prefHeight="175.0" prefWidth="300.0" style="-fx-background-color: #ECC5C0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.functions.AddController">
    <top>
       <VBox alignment="CENTER" prefHeight="56.0" prefWidth="300.0" style="-fx-background-color: #C47451;" BorderPane.alignment="CENTER">
          <children>
@@ -25,7 +26,7 @@
       </VBox>
    </top>
    <bottom>
-      <Button mnemonicParsing="false" style="-fx-background-color: #C47451; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Add" BorderPane.alignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#addData" style="-fx-background-color: #C47451; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Add" BorderPane.alignment="CENTER">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -42,12 +43,15 @@
          <children>
             <HBox prefHeight="30.0" prefWidth="300.0" spacing="10.0">
                <children>
-                  <RadioButton mnemonicParsing="false" text="Numerical Data">
+                  <RadioButton fx:id="numericalData" mnemonicParsing="false" text="Numerical Data">
                      <font>
                         <Font size="15.0" />
                      </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="dataType" />
+                     </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="File Data">
+                  <RadioButton fx:id="fileData" mnemonicParsing="false" text="File Data" toggleGroup="$dataType">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -64,7 +68,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <TextField text="Input floating number" />
+                  <TextField fx:id="data" text="Input floating number" />
                </children>
             </HBox>
          </children>

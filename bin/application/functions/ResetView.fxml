@@ -6,6 +6,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -58,8 +59,11 @@
                      <font>
                         <Font size="13.0" />
                      </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="layout" />
+                     </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Vertical">
+                  <RadioButton mnemonicParsing="false" text="Vertical" toggleGroup="$layout">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -97,8 +101,11 @@
                      <font>
                         <Font size="13.0" />
                      </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="order" />
+                     </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Descending">
+                  <RadioButton mnemonicParsing="false" text="Descending" toggleGroup="$order">
                      <font>
                         <Font size="13.0" />
                      </font>

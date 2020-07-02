@@ -19,27 +19,27 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="165.0" style="-fx-background-color: #C47451;">
                <children>
-                  <Button layoutY="32.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Add Data">
+                  <Button layoutY="32.0" mnemonicParsing="false" onAction="#add" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Add Data">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutY="90.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Delete Data">
+                  <Button layoutY="90.0" mnemonicParsing="false" onAction="#delete" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Delete Data">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutY="148.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="View Settings">
+                  <Button layoutY="148.0" mnemonicParsing="false" onAction="#reset" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="View Settings">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutY="206.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Print">
+                  <Button layoutY="206.0" mnemonicParsing="false" onAction="#print" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Print">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutY="264.0" mnemonicParsing="false" onAction="#newData" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Start New">
+                  <Button layoutY="264.0" mnemonicParsing="false" onAction="#startNew" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Start New">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -105,7 +105,7 @@
                                                       <Font size="15.0" />
                                                    </font>
                                                 </Label>
-                                                <ComboBox prefHeight="26.0" prefWidth="87.0" />
+                                                <ComboBox fx:id="percentiles" prefHeight="26.0" prefWidth="87.0" />
                                              </children>
                                           </HBox>
                                        </children>

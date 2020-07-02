@@ -6,6 +6,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -46,8 +47,11 @@
                      <font>
                         <Font size="15.0" />
                      </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="dataType" />
+                     </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="File Data">
+                  <RadioButton mnemonicParsing="false" text="File Data" toggleGroup="$dataType">
                      <font>
                         <Font size="15.0" />
                      </font>

@@ -4,10 +4,12 @@ import java.io.IOException;
 
 import application.App;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 
 public class MainController {
-
-	private App app;
+	
+	@FXML
+	private ComboBox percentiles;
 
 	@FXML
 	private void add() throws IOException {
@@ -30,7 +32,7 @@ public class MainController {
 	}
 	
 	@FXML
-	private void newData() throws IOException {
+	private void startNew() throws IOException {
 		
 	}
 }
