@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -50,45 +51,70 @@ public class App extends Application {
 	public static void addData() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(App.class.getResource("functions/AddView.fxml"));
-		root = loader.load();
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
+		BorderPane add = loader.load();
+
+		Stage addStage = new Stage();
+		addStage.setTitle("Add New Data");
+		addStage.initModality(Modality.NONE);
+		addStage.initOwner(stage);
+		Scene scene = new Scene(add);
+		addStage.setScene(scene);
+		addStage.showAndWait();
 	}
 	
 	public static void deleteData() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(App.class.getResource("functions/DeleteView.fxml"));
-		root = loader.load();
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
+		BorderPane delete = loader.load();
+
+		Stage deleteStage = new Stage();
+		deleteStage.setTitle("Delete Data");
+		deleteStage.initModality(Modality.NONE);
+		deleteStage.initOwner(stage);
+		Scene scene = new Scene(delete);
+		deleteStage.setScene(scene);
+		deleteStage.showAndWait();
 	}
 	
 	public static void resetView() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(App.class.getResource("functions/ResetView.fxml"));
-		root = loader.load();
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
+		BorderPane reset = loader.load();
+
+		Stage resetStage = new Stage();
+		resetStage.setTitle("View Settings");
+		resetStage.initModality(Modality.NONE);
+		resetStage.initOwner(stage);
+		Scene scene = new Scene(reset);
+		resetStage.setScene(scene);
+		resetStage.showAndWait();
 	}
 	
 	public static void error() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(App.class.getResource("error/ErrorMessage.fxml"));
-		root = loader.load();
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
+		BorderPane e1 = loader.load();
+
+		Stage e1Stage = new Stage();
+		e1Stage.setTitle("Error");
+		e1Stage.initModality(Modality.WINDOW_MODAL);
+		e1Stage.initOwner(stage);
+		Scene scene = new Scene(e1);
+		e1Stage.setScene(scene);
+		e1Stage.showAndWait();
 	}
 	
 	public static void error2() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(App.class.getResource("error/ErrorMessage2.fxml"));
-		root = loader.load();
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
+		BorderPane e2 = loader.load();
+
+		Stage e2Stage = new Stage();
+		e2Stage.setTitle("Error");
+		e2Stage.initModality(Modality.WINDOW_MODAL);
+		e2Stage.initOwner(stage);
+		Scene scene = new Scene(e2);
+		e2Stage.setScene(scene);
+		e2Stage.showAndWait();
 	}
 }

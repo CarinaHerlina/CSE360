@@ -13,17 +13,17 @@ public class MainController {
 
 	@FXML
 	private void add() throws IOException {
-		
+		App.addData();
 	}
 	
 	@FXML
 	private void delete() throws IOException {
-		
+		App.deleteData();
 	}
 	
 	@FXML
 	private void reset() throws IOException {
-		
+		App.resetView();
 	}
 	
 	@FXML
