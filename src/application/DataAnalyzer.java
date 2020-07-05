@@ -1,6 +1,7 @@
 package application;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -48,6 +49,12 @@ public class DataAnalyzer {
         System.out.println("\n Total Count: " + dataArray.size());
     }
 
+    // reverseDataArray always set array to the reverse of sorted array
+    private static void reverseDataArray(){
+        Collections.sort(dataArray);
+        Collections.reverse(dataArray);
+    }
+
     private static float getMean() {
         float sum = 0f, mean;
         for (float i: dataArray) {
@@ -70,5 +77,23 @@ public class DataAnalyzer {
         return median;
     }
 
+    public static float[] getSortedDataArray(){
+        sortDataArray();
+        float[] floatDataArray = new float[dataArray.size()];
+        int index = 0;
+        for(Float i: dataArray){
+            floatDataArray[index++] = i;
+        }
+        return floatDataArray;
+    }
 
+    public static float[] getReversedDataArray() {
+        reverseDataArray();
+        float[] floatDataArray = new float[dataArray.size()];
+        int index = 0;
+        for(Float i: dataArray){
+            floatDataArray[index++] = i;
+        }
+        return floatDataArray;
+    }
 }
