@@ -1,0 +1,11 @@
+
+
+
+
+# Ignoring IntelliJ specific files and folders
+
+/CSE360.iml
+
+
+/.idea/
+/out/
