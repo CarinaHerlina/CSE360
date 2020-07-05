@@ -27,15 +27,21 @@ public class DataAnalyzer {
         }
 
         sortDataArray();
+    }
+
+    public static void addFloatToDataArray(float newFloat) {
+        dataArray.add(newFloat);
+
+        sortDataArray();
+    }
+
+    private static void sortDataArray(){
+        Collections.sort(dataArray);
 
         for (Float dataPoint: dataArray) {
             System.out.println(dataPoint);
         }
         System.out.println("\n Total Count: " + dataArray.size());
-    }
-
-    private static void sortDataArray(){
-        Collections.sort(dataArray);
     }
 
 }
