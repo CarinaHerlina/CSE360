@@ -1,5 +1,5 @@
 package application;
-/**
+/*
  * CSE360 Group Project
  * An application to process data from a user's
  * inputed .txt file.
@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -18,18 +19,27 @@ import javafx.stage.Stage;
 
 public class App extends Application {
 	private static Stage stage;
-	private static BorderPane root;
+	private static Stage startStage;
 	
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
+
 	public void start(Stage stage) throws Exception{
-		this.stage = stage;
-		this.stage.setTitle("Group 8 - Data Analyzer");
-		display();
+		App.startStage = stage;
+		stage.setTitle("Group 8 - Data Analyzer");
+		Parent root = FXMLLoader.load(getClass().getResource("start/StartView.fxml"));
+		stage.setScene(new Scene(root));
+		stage.show();
 	}
-	
+
+/*
+	public static void reloadStart() throws IOException {
+		startStage.setTitle("Group 8 - Data Analyzer");
+		Parent root = FXMLLoader.load(App.class.getResource("start/StartView.fxml"));
+		startStage.setScene(new Scene(root));
+		startStage.show();
+	}
 	public void display() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(App.class.getResource("start/StartView.fxml"));
@@ -38,28 +48,25 @@ public class App extends Application {
 		stage.setScene(scene);
 		stage.show();
 	}
-	
-	public static void goMain() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(App.class.getResource("main/MainView.fxml"));
-		root = loader.load();
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
+*/
+	public static void loadMain() throws IOException {
+		startStage.close();
+		Stage mainStage = new Stage();
+		mainStage.setTitle("Group 8 - Data Analyzer");
+		Parent root = FXMLLoader.load(App.class.getResource("main/MainView.fxml"));
+		mainStage.setScene(new Scene(root));
+		mainStage.show();
 	}
 	
 	public static void addData() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(App.class.getResource("functions/AddView.fxml"));
-		BorderPane add = loader.load();
+		Parent add = FXMLLoader.load(App.class.getResource("functions/AddView.fxml"));
 
 		Stage addStage = new Stage();
 		addStage.setTitle("Add New Data");
-		addStage.initModality(Modality.NONE);
+		addStage.initModality(Modality.APPLICATION_MODAL);
 		addStage.initOwner(stage);
-		Scene scene = new Scene(add);
-		addStage.setScene(scene);
-		addStage.showAndWait();
+		addStage.setScene(new Scene(add));
+		addStage.show();
 	}
 	
 	public static void deleteData() throws IOException {

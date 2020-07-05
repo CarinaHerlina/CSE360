@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane minHeight="200.0" prefWidth="300.0" style="-fx-background-color: #ECC5C0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane minHeight="200.0" prefWidth="300.0" style="-fx-background-color: #ECC5C0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.functions.ResetController">
    <top>
       <VBox alignment="CENTER" prefHeight="32.0" prefWidth="302.0" style="-fx-background-color: #C47451;" BorderPane.alignment="CENTER">
          <children>
@@ -25,7 +25,7 @@
       </VBox>
    </top>
    <bottom>
-      <Button mnemonicParsing="false" style="-fx-background-color: #C47451; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Reset" BorderPane.alignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#reset" style="-fx-background-color: #C47451; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Reset" BorderPane.alignment="CENTER">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -55,7 +55,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <RadioButton mnemonicParsing="false" text="Horizontal">
+                  <RadioButton fx:id="horizontal" mnemonicParsing="false" text="Horizontal">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -63,7 +63,7 @@
                         <ToggleGroup fx:id="layout" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Vertical" toggleGroup="$layout">
+                  <RadioButton fx:id="vertical" mnemonicParsing="false" text="Vertical" toggleGroup="$layout">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -85,7 +85,7 @@
    <right>
       <VBox prefHeight="23.0" prefWidth="162.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField>
+            <TextField fx:id="numColumns">
                <VBox.margin>
                   <Insets right="10.0" />
                </VBox.margin>
@@ -97,7 +97,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <RadioButton mnemonicParsing="false" text="Ascending">
+                  <RadioButton fx:id="ascending" mnemonicParsing="false" text="Ascending">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -105,7 +105,7 @@
                         <ToggleGroup fx:id="order" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Descending" toggleGroup="$order">
+                  <RadioButton fx:id="descending" mnemonicParsing="false" text="Descending" toggleGroup="$order">
                      <font>
                         <Font size="13.0" />
                      </font>
