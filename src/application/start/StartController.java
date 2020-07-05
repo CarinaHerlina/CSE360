@@ -7,6 +7,7 @@ import application.App;
 import application.DataAnalyzer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 
@@ -14,8 +15,8 @@ public class StartController {
 
 	FileChooser fc = new FileChooser();
 
-	@FXML
-	private Button browseButton;
+	@FXML private Button browseButton;
+	@FXML private Label fileErrorLabel;
 
 	@FXML
 	private void upload() throws IOException {
@@ -27,9 +28,9 @@ public class StartController {
 		if(file != null && file.getPath().endsWith(".txt")){
 			DataAnalyzer.addFileDataToArray(file);
 			App.loadMain();
-		}
-		else{
-			App.reloadStart();
+		} else {
+			fileErrorLabel.setMaxHeight(20);
+			fileErrorLabel.setVisible(true);
 		}
 	}
 }
