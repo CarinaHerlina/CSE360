@@ -12,7 +12,7 @@
    <center>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="83.0" prefWidth="300.0" spacing="10.0" style="-fx-background-color: #ECC5C0;">
          <children>
-            <Label text="Please select a text file">
+            <Label fx:id="startLabel" text="Please select a text file to continue">
                <font>
                   <Font size="18.0" />
                </font>

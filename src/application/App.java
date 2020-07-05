@@ -33,6 +33,13 @@ public class App extends Application {
 		stage.show();
 	}
 
+
+	public static void reloadStart() throws IOException {
+		startStage.setTitle("Group 8 - Data Analyzer");
+		Parent root = FXMLLoader.load(App.class.getResource("start/StartView.fxml"));
+		startStage.setScene(new Scene(root));
+		startStage.show();
+	}
 /*
 	public void display() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
