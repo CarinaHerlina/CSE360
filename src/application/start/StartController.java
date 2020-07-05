@@ -16,9 +16,6 @@ public class StartController {
 	FileChooser fc = new FileChooser();
 
 	@FXML
-	private Label startLabel;
-
-	@FXML
 	private Button browseButton;
 
 	@FXML
