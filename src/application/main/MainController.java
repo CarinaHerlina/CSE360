@@ -5,9 +5,16 @@ import java.io.IOException;
 import application.App;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.layout.GridPane;
 
 public class MainController {
-	
+
+	@FXML private GridPane dataTablePane;
+
+	private void test() {
+
+	}
+
 	@FXML
 	private ComboBox percentiles;
 
