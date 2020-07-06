@@ -8,6 +8,7 @@ package application;
 
 import java.io.IOException;
 
+import application.main.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -54,7 +55,9 @@ public class App extends Application {
 		Stage mainStage = new Stage();
 		mainStage.setTitle("Group 8 - Data Analyzer");
 		Parent root = FXMLLoader.load(App.class.getResource("main/MainView.fxml"));
-		mainStage.setScene(new Scene(root));
+		Scene scene = new Scene(root);
+		scene.getStylesheets().add(App.class.getResource("css/styles.css").toExternalForm());
+		mainStage.setScene(scene);
 		mainStage.show();
 	}
 	
