@@ -42,7 +42,7 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutY="264.0" mnemonicParsing="false" onAction="#startNew" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Start New">
+                  <Button layoutY="264.0" mnemonicParsing="false" onAction="#resetData" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Reset">
                      <font>
                         <Font size="17.0" />
                      </font>

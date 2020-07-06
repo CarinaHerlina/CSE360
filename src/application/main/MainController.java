@@ -102,8 +102,15 @@ public class MainController {
 	}
 	
 	@FXML
-	private void startNew() {
-		
+	private void resetData() throws IOException{
+		Parent add = FXMLLoader.load(App.class.getResource("functions/ResetView.fxml"));
+
+		Stage viewSettingsStage = new Stage();
+		viewSettingsStage.setTitle("Reset Data");
+		viewSettingsStage.initModality(Modality.APPLICATION_MODAL);
+		viewSettingsStage.setScene(new Scene(add));
+		viewSettingsStage.showAndWait();
+		buildDataTable(numColumns, gridSort, numSort);
 	}
 
 	public static void setGridSort(GridSort newSort) {
@@ -128,6 +135,12 @@ public class MainController {
 
 	public static int getNumColumns() {
 		return numColumns;
+	}
+
+	public static void resetDataTableDefaults(){
+		numColumns = 10;
+		gridSort = GridSort.HORIZONTAL;
+		numSort = NumSort.DESCENDING;
 	}
 
 	public void buildDataTable(int numColumns, GridSort gridSort, NumSort numSort) {

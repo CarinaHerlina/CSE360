@@ -100,4 +100,8 @@ public class DataAnalyzer {
         }
         return floatDataArray;
     }
+
+    public static void resetDataArray(){
+        dataArray.clear();
+    }
 }
