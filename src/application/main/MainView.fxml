@@ -37,7 +37,7 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutY="206.0" mnemonicParsing="false" onAction="#print" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Print">
+                  <Button layoutY="206.0" mnemonicParsing="false" onAction="#save" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Save">
                      <font>
                         <Font size="17.0" />
                      </font>

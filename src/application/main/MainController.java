@@ -1,5 +1,7 @@
 package application.main;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import application.App;
@@ -11,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
 
 public class MainController {
 
@@ -83,8 +87,6 @@ public class MainController {
 		dataTablePane.getChildren().add(dataTable);
 	}
 
-	@FXML
-	private ComboBox percentiles;
 
 	@FXML
 	private void add() throws IOException {
@@ -102,12 +104,30 @@ public class MainController {
 	}
 	
 	@FXML
-	private void print() throws IOException {
-		
+	private void save() {
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Save Data");
+		fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files (*.txt)", "*.txt"));
+
+		Window window = dataTablePane.getScene().getWindow();
+		File file = fileChooser.showSaveDialog(window);
+		if(file != null) {
+			try{
+				FileWriter fw = new FileWriter(file);
+				float[] array = DataAnalyzer.getSortedDataArray();
+
+				for(float i: array){
+					fw.write(i + "\n");
+				}
+				fw.close();
+			} catch (IOException e){
+				//DO nothing
+			}
+		}
 	}
 	
 	@FXML
-	private void startNew() throws IOException {
+	private void startNew() {
 		
 	}
 }
