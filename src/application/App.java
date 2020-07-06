@@ -60,32 +60,27 @@ public class App extends Application {
 		mainStage.setScene(scene);
 		mainStage.show();
 	}
-	
+/*
 	public static void addData() throws IOException {
 		Parent add = FXMLLoader.load(App.class.getResource("functions/AddView.fxml"));
 
 		Stage addStage = new Stage();
 		addStage.setTitle("Add New Data");
 		addStage.initModality(Modality.APPLICATION_MODAL);
-		addStage.initOwner(stage);
 		addStage.setScene(new Scene(add));
 		addStage.show();
 	}
 	
 	public static void deleteData() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(App.class.getResource("functions/DeleteView.fxml"));
-		BorderPane delete = loader.load();
+		Parent add = FXMLLoader.load(App.class.getResource("functions/DeleteView.fxml"));
 
-		Stage deleteStage = new Stage();
-		deleteStage.setTitle("Delete Data");
-		deleteStage.initModality(Modality.NONE);
-		deleteStage.initOwner(stage);
-		Scene scene = new Scene(delete);
-		deleteStage.setScene(scene);
-		deleteStage.showAndWait();
+		Stage delStage = new Stage();
+		delStage.setTitle("Delete Data");
+		delStage.initModality(Modality.APPLICATION_MODAL);
+		delStage.setScene(new Scene(add));
+		delStage.show();
 	}
-	
+*/
 	public static void resetView() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(App.class.getResource("functions/ResetView.fxml"));

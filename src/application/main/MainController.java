@@ -7,38 +7,42 @@ import java.io.IOException;
 import application.App;
 import application.DataAnalyzer;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.control.ComboBox;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 
 public class MainController {
 
-	@FXML private static AnchorPane dataTablePane;
+	@FXML private AnchorPane dataTablePane;
 
 	@FXML public void initialize() {
-		buildDataTable(10, GridSort.HORIZONTAL, NumericalSort.DESCENDING);
+		buildDataTable(10, GridSort.HORIZONTAL, NumSort.DESCENDING);
 	}
 
-	enum GridSort {
+	public enum GridSort {
 		HORIZONTAL,
 		VERTICAL
 	}
 
-	enum NumericalSort {
+	public enum NumSort {
 		ASCENDING,
 		DESCENDING
 	}
 
-	public static void buildDataTable(int numColumns, GridSort gridSort, NumericalSort numericalSort) {
+	public void buildDataTable(int numColumns, GridSort gridSort, NumSort numSort) {
 
 		float[] dataArray;
 		int dataArrayIndex = 0;
-		if(numericalSort == NumericalSort.ASCENDING) dataArray = DataAnalyzer.getSortedDataArray();
+		if(numSort == NumSort.ASCENDING) dataArray = DataAnalyzer.getSortedDataArray();
 		else dataArray = DataAnalyzer.getReversedDataArray();
 
 		// Remainder used to determine how many numbers get placed in the bottom rom of the table
@@ -90,12 +94,26 @@ public class MainController {
 
 	@FXML
 	private void add() throws IOException {
-		App.addData();
+		Parent add = FXMLLoader.load(App.class.getResource("functions/AddView.fxml"));
+
+		Stage addStage = new Stage();
+		addStage.setTitle("Add New Data");
+		addStage.initModality(Modality.APPLICATION_MODAL);
+		addStage.setScene(new Scene(add));
+		addStage.showAndWait();
+		buildDataTable(10,GridSort.HORIZONTAL,NumSort.DESCENDING);
 	}
 	
 	@FXML
 	private void delete() throws IOException {
-		App.deleteData();
+		Parent add = FXMLLoader.load(App.class.getResource("functions/DeleteView.fxml"));
+
+		Stage delStage = new Stage();
+		delStage.setTitle("Delete Data");
+		delStage.initModality(Modality.APPLICATION_MODAL);
+		delStage.setScene(new Scene(add));
+		delStage.showAndWait();
+		buildDataTable(10, GridSort.HORIZONTAL, NumSort.DESCENDING);
 	}
 	
 	@FXML

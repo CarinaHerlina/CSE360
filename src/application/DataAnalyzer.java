@@ -36,6 +36,10 @@ public class DataAnalyzer {
         sortDataArray();
     }
 
+    public static boolean deleteFloatFromDataArray(float floatToDelete){
+        return dataArray.remove(floatToDelete);
+    }
+
     public static int getDataArraySize(){
         return dataArray.size();
     }

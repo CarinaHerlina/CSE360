@@ -6,24 +6,11 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane minHeight="150.0" prefWidth="300.0" style="-fx-background-color: #ECC5C0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.functions.DeleteController">
-   <center>
-      <Label prefHeight="30.0" prefWidth="103.0" text="Enter data:" BorderPane.alignment="CENTER">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-   </center>
-   <right>
-      <TextField fx:id="data" text="Input data to delete" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets right="10.0" />
-         </BorderPane.margin>
-      </TextField>
-   </right>
    <top>
       <VBox alignment="CENTER" prefHeight="56.0" prefWidth="300.0" style="-fx-background-color: #C47451;" BorderPane.alignment="CENTER">
          <children>
@@ -49,4 +36,25 @@
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
+   <center>
+      <VBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="180.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="103.0" text="Value to Delete:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="floatTextField" promptText="Floating Point Value" />
+               </children>
+            </HBox>
+            <Label fx:id="valueDeletedLabel" text="Please enter a value to be deleted.">
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </Label>
+         </children>
+      </VBox>
+   </center>
 </BorderPane>

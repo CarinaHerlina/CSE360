@@ -138,7 +138,7 @@
                                                       <Font size="15.0" />
                                                    </font>
                                                 </Label>
-                                                <ComboBox fx:id="percentiles" prefHeight="26.0" prefWidth="87.0" />
+                                                <ComboBox prefHeight="26.0" prefWidth="87.0" />
                                              </children>
                                           </HBox>
                                        </children>
