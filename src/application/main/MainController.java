@@ -18,7 +18,7 @@ import javafx.stage.Window;
 
 public class MainController {
 
-	@FXML private AnchorPane dataTablePane;
+	@FXML private static AnchorPane dataTablePane;
 
 	@FXML public void initialize() {
 		buildDataTable(10, GridSort.HORIZONTAL, NumericalSort.DESCENDING);
@@ -34,7 +34,7 @@ public class MainController {
 		DESCENDING
 	}
 
-	private void buildDataTable(int numColumns, GridSort gridSort, NumericalSort numericalSort) {
+	public static void buildDataTable(int numColumns, GridSort gridSort, NumericalSort numericalSort) {
 
 		float[] dataArray;
 		int dataArrayIndex = 0;
