@@ -117,8 +117,14 @@ public class MainController {
 	}
 	
 	@FXML
-	private void reset() throws IOException {
-		App.resetView();
+	private void viewSettings() throws IOException {
+		Parent add = FXMLLoader.load(App.class.getResource("functions/DeleteView.fxml"));
+
+		Stage viewSettingsStage = new Stage();
+		viewSettingsStage.setTitle("View Settings");
+		viewSettingsStage.initModality(Modality.APPLICATION_MODAL);
+		viewSettingsStage.setScene(new Scene(add));
+		viewSettingsStage.showAndWait();
 	}
 	
 	@FXML

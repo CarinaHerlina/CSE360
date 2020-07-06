@@ -83,7 +83,7 @@ public class App extends Application {
 */
 	public static void resetView() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(App.class.getResource("functions/ResetView.fxml"));
+		loader.setLocation(App.class.getResource("functions/ViewSettings.fxml"));
 		BorderPane reset = loader.load();
 
 		Stage resetStage = new Stage();

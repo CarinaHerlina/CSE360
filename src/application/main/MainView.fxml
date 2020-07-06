@@ -32,7 +32,7 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutY="148.0" mnemonicParsing="false" onAction="#reset" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="View Settings">
+                  <Button layoutY="148.0" mnemonicParsing="false" onAction="#viewSettings" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="View Settings">
                      <font>
                         <Font size="17.0" />
                      </font>
