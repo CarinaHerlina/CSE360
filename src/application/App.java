@@ -34,22 +34,6 @@ public class App extends Application {
 		stage.show();
 	}
 
-/*
-	public static void reloadStart() throws IOException {
-		startStage.setTitle("Group 8 - Data Analyzer");
-		Parent root = FXMLLoader.load(App.class.getResource("start/StartView.fxml"));
-		startStage.setScene(new Scene(root));
-		startStage.show();
-	}
-	public void display() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(App.class.getResource("start/StartView.fxml"));
-		root = loader.load();
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
-	}
-*/
 	public static void loadMain() throws IOException {
 		startStage.close();
 		Stage mainStage = new Stage();
@@ -60,41 +44,7 @@ public class App extends Application {
 		mainStage.setScene(scene);
 		mainStage.show();
 	}
-/*
-	public static void addData() throws IOException {
-		Parent add = FXMLLoader.load(App.class.getResource("functions/AddView.fxml"));
 
-		Stage addStage = new Stage();
-		addStage.setTitle("Add New Data");
-		addStage.initModality(Modality.APPLICATION_MODAL);
-		addStage.setScene(new Scene(add));
-		addStage.show();
-	}
-	
-	public static void deleteData() throws IOException {
-		Parent add = FXMLLoader.load(App.class.getResource("functions/DeleteView.fxml"));
-
-		Stage delStage = new Stage();
-		delStage.setTitle("Delete Data");
-		delStage.initModality(Modality.APPLICATION_MODAL);
-		delStage.setScene(new Scene(add));
-		delStage.show();
-	}
-*/
-	public static void resetView() throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(App.class.getResource("functions/ViewSettings.fxml"));
-		BorderPane reset = loader.load();
-
-		Stage resetStage = new Stage();
-		resetStage.setTitle("View Settings");
-		resetStage.initModality(Modality.NONE);
-		resetStage.initOwner(stage);
-		Scene scene = new Scene(reset);
-		resetStage.setScene(scene);
-		resetStage.showAndWait();
-	}
-	
 	public static void error() throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(App.class.getResource("error/ErrorMessage.fxml"));
