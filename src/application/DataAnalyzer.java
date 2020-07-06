@@ -59,7 +59,7 @@ public class DataAnalyzer {
         Collections.reverse(dataArray);
     }
 
-    private static float getMean() {
+    public static float getMean() {
         float sum = 0f, mean;
         for (float i: dataArray) {
             sum += i;

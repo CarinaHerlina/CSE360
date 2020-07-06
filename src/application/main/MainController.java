@@ -20,6 +20,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+import javax.swing.text.LabelView;
+
 public class MainController {
 
 	private static int numColumns = 10;
@@ -37,9 +39,16 @@ public class MainController {
 	}
 
 	@FXML private AnchorPane dataTablePane;
+	@FXML private Label meanLabel;
+	@FXML private Label medianLabel;
+	@FXML private Label topOccurence;
+	@FXML private Label secondOccurrence;
+	@FXML private Label thirdOccurrence;
+	@FXML private Label percentileAvgLabel;
+	@FXML private Label numPercentilesLabel;
 
 	@FXML public void initialize() {
-		buildDataTable(numColumns, gridSort, numSort);
+		updateMainView();
 	}
 
 	@FXML
@@ -51,7 +60,7 @@ public class MainController {
 		addStage.initModality(Modality.APPLICATION_MODAL);
 		addStage.setScene(new Scene(add));
 		addStage.showAndWait();
-		buildDataTable(numColumns,gridSort,numSort);
+		updateMainView();
 	}
 	
 	@FXML
@@ -63,7 +72,7 @@ public class MainController {
 		delStage.initModality(Modality.APPLICATION_MODAL);
 		delStage.setScene(new Scene(add));
 		delStage.showAndWait();
-		buildDataTable(numColumns, gridSort, numSort);
+		updateMainView();
 	}
 	
 	@FXML
@@ -75,7 +84,7 @@ public class MainController {
 		viewSettingsStage.initModality(Modality.APPLICATION_MODAL);
 		viewSettingsStage.setScene(new Scene(add));
 		viewSettingsStage.showAndWait();
-		buildDataTable(numColumns, gridSort, numSort);
+		updateMainView();
 	}
 	
 	@FXML
@@ -110,7 +119,7 @@ public class MainController {
 		viewSettingsStage.initModality(Modality.APPLICATION_MODAL);
 		viewSettingsStage.setScene(new Scene(add));
 		viewSettingsStage.showAndWait();
-		buildDataTable(numColumns, gridSort, numSort);
+		updateMainView();
 	}
 
 	public static void setGridSort(GridSort newSort) {
@@ -143,7 +152,15 @@ public class MainController {
 		numSort = NumSort.DESCENDING;
 	}
 
-	public void buildDataTable(int numColumns, GridSort gridSort, NumSort numSort) {
+	private void updateMainView(){
+		buildDataTable(numColumns, gridSort, numSort);
+
+		meanLabel.setText(String.valueOf(DataAnalyzer.getMean()));
+		medianLabel.setText(String.valueOf(DataAnalyzer.getMedian()));
+
+	}
+
+	private void buildDataTable(int numColumns, GridSort gridSort, NumSort numSort) {
 
 		float[] dataArray;
 		int dataArrayIndex = 0;
