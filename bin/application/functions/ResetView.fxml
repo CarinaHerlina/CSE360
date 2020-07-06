@@ -25,7 +25,7 @@
       </VBox>
    </top>
    <bottom>
-      <Button mnemonicParsing="false" onAction="#reset" style="-fx-background-color: #C47451; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Reset" BorderPane.alignment="CENTER">
+      <Button mnemonicParsing="false" onAction="#updateViewSettings" style="-fx-background-color: #C47451; -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Reset" BorderPane.alignment="CENTER">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -55,7 +55,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="horizontal" mnemonicParsing="false" text="Horizontal">
+                  <RadioButton fx:id="horizontalRadio" mnemonicParsing="false" text="Horizontal">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -63,7 +63,7 @@
                         <ToggleGroup fx:id="layout" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="vertical" mnemonicParsing="false" text="Vertical" toggleGroup="$layout">
+                  <RadioButton fx:id="verticalRadio" mnemonicParsing="false" text="Vertical" toggleGroup="$layout">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -97,7 +97,7 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="ascending" mnemonicParsing="false" text="Ascending">
+                  <RadioButton fx:id="ascendingRadio" mnemonicParsing="false" text="Ascending">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -105,7 +105,7 @@
                         <ToggleGroup fx:id="order" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="descending" mnemonicParsing="false" text="Descending" toggleGroup="$order">
+                  <RadioButton fx:id="descendingRadio" mnemonicParsing="false" text="Descending" toggleGroup="$order">
                      <font>
                         <Font size="13.0" />
                      </font>

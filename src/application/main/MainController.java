@@ -22,11 +22,9 @@ import javafx.stage.Window;
 
 public class MainController {
 
-	@FXML private AnchorPane dataTablePane;
-
-	@FXML public void initialize() {
-		buildDataTable(10, GridSort.HORIZONTAL, NumSort.DESCENDING);
-	}
+	private static int numColumns = 10;
+	private static GridSort gridSort = GridSort.HORIZONTAL;
+	private static NumSort numSort = NumSort.DESCENDING;
 
 	public enum GridSort {
 		HORIZONTAL,
@@ -36,6 +34,100 @@ public class MainController {
 	public enum NumSort {
 		ASCENDING,
 		DESCENDING
+	}
+
+	@FXML private AnchorPane dataTablePane;
+
+	@FXML public void initialize() {
+		buildDataTable(numColumns, gridSort, numSort);
+	}
+
+	@FXML
+	private void add() throws IOException {
+		Parent add = FXMLLoader.load(App.class.getResource("functions/AddView.fxml"));
+
+		Stage addStage = new Stage();
+		addStage.setTitle("Add New Data");
+		addStage.initModality(Modality.APPLICATION_MODAL);
+		addStage.setScene(new Scene(add));
+		addStage.showAndWait();
+		buildDataTable(numColumns,gridSort,numSort);
+	}
+	
+	@FXML
+	private void delete() throws IOException {
+		Parent add = FXMLLoader.load(App.class.getResource("functions/DeleteView.fxml"));
+
+		Stage delStage = new Stage();
+		delStage.setTitle("Delete Data");
+		delStage.initModality(Modality.APPLICATION_MODAL);
+		delStage.setScene(new Scene(add));
+		delStage.showAndWait();
+		buildDataTable(numColumns, gridSort, numSort);
+	}
+	
+	@FXML
+	private void viewSettings() throws IOException {
+		Parent add = FXMLLoader.load(App.class.getResource("functions/ViewSettings.fxml"));
+
+		Stage viewSettingsStage = new Stage();
+		viewSettingsStage.setTitle("View Settings");
+		viewSettingsStage.initModality(Modality.APPLICATION_MODAL);
+		viewSettingsStage.setScene(new Scene(add));
+		viewSettingsStage.showAndWait();
+		buildDataTable(numColumns, gridSort, numSort);
+	}
+	
+	@FXML
+	private void save() {
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Save Data");
+		fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files (*.txt)", "*.txt"));
+
+		Window window = dataTablePane.getScene().getWindow();
+		File file = fileChooser.showSaveDialog(window);
+		if(file != null) {
+			try{
+				FileWriter fw = new FileWriter(file);
+				float[] array = DataAnalyzer.getSortedDataArray();
+
+				for(float i: array){
+					fw.write(i + "\n");
+				}
+				fw.close();
+			} catch (IOException e){
+				//DO nothing
+			}
+		}
+	}
+	
+	@FXML
+	private void startNew() {
+		
+	}
+
+	public static void setGridSort(GridSort newSort) {
+		gridSort = newSort;
+	}
+
+	public static GridSort getGridSort(){
+		return gridSort;
+	}
+
+	public static void setNumSort(NumSort newNumSort) {
+		numSort = newNumSort;
+	}
+
+	public static NumSort getNumSort(){
+		return numSort;
+	}
+
+	public static void setNumColumns(int newNumColumns) {
+		numColumns = newNumColumns;
+	}
+
+	public static int getNumColumns() {
+		return numColumns;
 	}
 
 	public void buildDataTable(int numColumns, GridSort gridSort, NumSort numSort) {
@@ -89,69 +181,5 @@ public class MainController {
 			}
 		}
 		dataTablePane.getChildren().add(dataTable);
-	}
-
-
-	@FXML
-	private void add() throws IOException {
-		Parent add = FXMLLoader.load(App.class.getResource("functions/AddView.fxml"));
-
-		Stage addStage = new Stage();
-		addStage.setTitle("Add New Data");
-		addStage.initModality(Modality.APPLICATION_MODAL);
-		addStage.setScene(new Scene(add));
-		addStage.showAndWait();
-		buildDataTable(10,GridSort.HORIZONTAL,NumSort.DESCENDING);
-	}
-	
-	@FXML
-	private void delete() throws IOException {
-		Parent add = FXMLLoader.load(App.class.getResource("functions/DeleteView.fxml"));
-
-		Stage delStage = new Stage();
-		delStage.setTitle("Delete Data");
-		delStage.initModality(Modality.APPLICATION_MODAL);
-		delStage.setScene(new Scene(add));
-		delStage.showAndWait();
-		buildDataTable(10, GridSort.HORIZONTAL, NumSort.DESCENDING);
-	}
-	
-	@FXML
-	private void viewSettings() throws IOException {
-		Parent add = FXMLLoader.load(App.class.getResource("functions/DeleteView.fxml"));
-
-		Stage viewSettingsStage = new Stage();
-		viewSettingsStage.setTitle("View Settings");
-		viewSettingsStage.initModality(Modality.APPLICATION_MODAL);
-		viewSettingsStage.setScene(new Scene(add));
-		viewSettingsStage.showAndWait();
-	}
-	
-	@FXML
-	private void save() {
-		FileChooser fileChooser = new FileChooser();
-		fileChooser.setTitle("Save Data");
-		fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files (*.txt)", "*.txt"));
-
-		Window window = dataTablePane.getScene().getWindow();
-		File file = fileChooser.showSaveDialog(window);
-		if(file != null) {
-			try{
-				FileWriter fw = new FileWriter(file);
-				float[] array = DataAnalyzer.getSortedDataArray();
-
-				for(float i: array){
-					fw.write(i + "\n");
-				}
-				fw.close();
-			} catch (IOException e){
-				//DO nothing
-			}
-		}
-	}
-	
-	@FXML
-	private void startNew() {
-		
 	}
 }
