@@ -20,7 +20,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
-import javax.swing.text.LabelView;
 
 public class MainController {
 
@@ -158,6 +157,10 @@ public class MainController {
 		meanLabel.setText(String.valueOf(DataAnalyzer.getMean()));
 		medianLabel.setText(String.valueOf(DataAnalyzer.getMedian()));
 
+		//TODO Add updates for top 3 occurring
+		//TODO Add update for Percentile Average
+		//TODO Add update for Number of values above Percentile.
+
 	}
 
 	private void buildDataTable(int numColumns, GridSort gridSort, NumSort numSort) {
@@ -212,4 +215,6 @@ public class MainController {
 		}
 		dataTablePane.getChildren().add(dataTable);
 	}
+
+	//TODO Add method to show all values above percentile in lower-right pane of MainView.fxml
 }

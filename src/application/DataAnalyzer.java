@@ -104,4 +104,11 @@ public class DataAnalyzer {
     public static void resetDataArray(){
         dataArray.clear();
     }
+
+    //TODO Add Method to find top 3 occurring values
+
+    //TODO Add Method to find all values above Percentile
+
+    //TODO Add method to find the average of all values above Percentile.
+
 }
