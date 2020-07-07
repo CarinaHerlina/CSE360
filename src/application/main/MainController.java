@@ -160,6 +160,7 @@ public class MainController {
 		numSort = NumSort.DESCENDING;
 	}
 
+	@FXML
 	private void updateMainView(){
 		buildDataTable(numColumns, gridSort, numSort);
 

@@ -81,7 +81,7 @@ public class DataAnalyzer {
         if(dataArray.size()%2 == 0) {
              median = (dataArray.get(dataArray.size()/2) + dataArray.get(dataArray.size()/2 + 1))/2;
         } else {
-            median = dataArray.get(dataArray.size()/2 + 1);
+            median = dataArray.get(dataArray.size()/2);
         }
         return median;
     }

@@ -1,16 +1,15 @@
-
-
-
-# ignoring Eclipse specific files
-
-/.project
-/.classpath
-
-
-# Ignoring IntelliJ specific files and folders
+# Ignoring IntelliJ generated files and folders
 
 /CSE360.iml
+/CSE360-Collin.iml
 
 /.idea/
 /out/
+
+# Ignoring eclipse generated folders.
+
 /.metadata/
+/bin/
+/.metadata/
+/src/application/bin/
+/src/application/.metadata/
