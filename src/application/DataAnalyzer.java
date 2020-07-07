@@ -4,6 +4,9 @@ import java.io.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
 
 public class DataAnalyzer {
 
@@ -106,9 +109,133 @@ public class DataAnalyzer {
     }
 
     //TODO Add Method to find top 3 occurring values
+    public static float[] getTopThreeOccuring()
+    {
+        float[] topThree = new float[3];
+        for(int i = 0; i < 3; i++)
+        {
+            topThree[i] = 0;
+        }
+
+        float[] inputArray = new float[dataArray.size()];
+        for(int i = 0; i < inputArray.length; i++)
+        {
+            inputArray[i] = dataArray.get(i);
+        }
+
+        //Creating HashMap object with elements as keys and their occurrences as values
+
+        HashMap<Float, Float> elementCountMap = new HashMap<Float, Float>();
+
+        //Inserting all the elements of inputArray into elementCountMap
+
+        for (int i = 0; i < inputArray.length; i++)
+        {
+            if (elementCountMap.containsKey(i))
+            {
+                //If an element is present, incrementing its count by 1
+
+                elementCountMap.put((float) i, elementCountMap.get(i)+1);
+            }
+            else
+            {
+                //If an element is not present, put that element with 1 as its value
+
+                elementCountMap.put((float)i, (float)1);
+            }
+        }
+
+        int element = 0;
+
+        int frequency = 1;
+
+        //Iterating through elementCountMap to get the most frequent element and its frequency
+
+        Set<Entry<Float, Float>> entrySet = elementCountMap.entrySet();
+        for(int i = 2; i >= 0; i--)
+        {
+            for (Entry<Float, Float> entry : entrySet)
+            {
+                if(entry.getValue() > frequency)
+                {
+//                element = entry.getKey();
+//
+//                frequency = entry.getValue();
+                }
+            }
+            if(topThree[i] != element)
+            {
+                topThree[i] = element;
+            }
+            elementCountMap.remove(element);
+            entrySet = elementCountMap.entrySet();
+        }
+
+        return topThree;
+    }
 
     //TODO Add Method to find all values above Percentile
+    public static float[] getPercentile(float percentile)
+    {
+        float[] inPercentile = new float[0];
+        percentile = percentile / 100;
+        float minToBeat = getMax() * percentile;
+
+        int count = 0;
+        for(int i = 0; i < dataArray.size(); i++)
+        {
+            if (dataArray.get(i) > minToBeat)
+            {
+                count++;
+            }
+        }
+
+        if(count > 0)
+        {
+            inPercentile = new float[count];
+
+            count = 0;
+
+            for(int i = 0; i < dataArray.size(); i++)
+            {
+                if (dataArray.get(i) > minToBeat)
+                {
+                    inPercentile[count] = dataArray.get(i);
+                    count++;
+                }
+            }
+        }
+
+        return inPercentile;
+    }
+
+    public static float getMax()
+    {
+        float max = -Float.MAX_VALUE;
+        for(int i = 0; i < dataArray.size(); i++)
+        {
+            if(dataArray.get(i) > max)
+            {
+                max = dataArray.get(i);
+            }
+        }
+
+        return max;
+    }
 
     //TODO Add method to find the average of all values above Percentile.
+    public static float getAverageAbovePercentile(float percentile)
+    {
+        float averageAbove = 0;
+        float[] temp = getPercentile(percentile);
+        for(int i = 0; i < temp.length; i++)
+        {
+            averageAbove += temp[i];
+        }
+
+        averageAbove = averageAbove / temp.length;
+
+        return averageAbove;
+    }
 
 }
