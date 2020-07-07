@@ -4,12 +4,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -34,12 +37,12 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutY="206.0" mnemonicParsing="false" onAction="#save" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Print">
+                  <Button layoutY="206.0" mnemonicParsing="false" onAction="#save" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Save">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutY="264.0" mnemonicParsing="false" onAction="#resetData" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Start New">
+                  <Button layoutY="264.0" mnemonicParsing="false" onAction="#resetData" prefHeight="56.0" prefWidth="165.0" style="-fx-background-color: #ECC5C0;" text="Reset">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -57,7 +60,27 @@
                                     <Font name="System Bold" size="22.0" />
                                  </font>
                               </Label>
-                              <TableView fixedCellSize="1.0" layoutX="7.0" layoutY="36.0" prefHeight="334.0" prefWidth="515.0" />
+                              <ScrollPane layoutX="14.0" layoutY="41.0" prefHeight="336.0" prefWidth="493.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0">
+                                <content>
+                                  <AnchorPane fx:id="dataTablePane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+                                       <children>
+                                          <GridPane layoutY="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="30.0" prefWidth="100.0" styleClass="dataTableLabel" stylesheets="@../css/styles.css" text="32.55" textAlignment="CENTER" />
+                                                <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="100.0" styleClass="dataTableLabel" stylesheets="@../css/styles.css" text="45.56" textAlignment="CENTER" GridPane.columnIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </ScrollPane>
                            </children>
                         </AnchorPane>
                         <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #ECC5C0;">
@@ -69,23 +92,88 @@
                               </Label>
                               <HBox prefHeight="370.0" prefWidth="533.0">
                                  <children>
-                                    <VBox alignment="CENTER_LEFT" prefHeight="360.0" prefWidth="347.0">
+                                    <VBox prefHeight="360.0" prefWidth="347.0">
                                        <children>
-                                          <Label text="Mean: ">
-                                             <font>
-                                                <Font size="17.0" />
-                                             </font>
-                                          </Label>
-                                          <Label text="Median">
-                                             <font>
-                                                <Font size="17.0" />
-                                             </font>
-                                          </Label>
+                                          <HBox prefHeight="30.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Mean: ">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="meanLabel" text="Label">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="30.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Median: ">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="medianLabel" text="Label">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
                                           <Label text="Top 3 Occurrences: ">
                                              <font>
                                                 <Font size="17.0" />
                                              </font>
                                           </Label>
+                                          <HBox layoutX="10.0" layoutY="208.0" prefHeight="30.0" prefWidth="200.0">
+                                             <children>
+                                                <Label fx:id="topOccurence" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="90.0" text="Label" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="secondOccurrence" alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="90.0" text="Label" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="thirdOccurrence" alignment="CENTER" layoutX="100.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="90.0" text="Label" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="200.0">
+                                             <children>
+                                                <Label maxWidth="150.0" minHeight="100.0" text="Average of Values Above Percentile:" wrapText="true">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="percentileAvgLabel" minHeight="100.0" minWidth="90.0" text="Label">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <HBox layoutX="10.0" layoutY="126.0" prefHeight="30.0" prefWidth="200.0">
+                                             <children>
+                                                <Label maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="100.0" prefWidth="150.0" text="Number of Values Above Percentile:" wrapText="true">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="numPercentilesLabel" minHeight="100.0" prefWidth="70.0" text="Label">
+                                                   <font>
+                                                      <Font size="17.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
                                        </children>
                                        <HBox.margin>
                                           <Insets />
@@ -105,7 +193,7 @@
                                                       <Font size="15.0" />
                                                    </font>
                                                 </Label>
-                                                <ComboBox fx:id="percentiles" prefHeight="26.0" prefWidth="87.0" />
+                                                <ComboBox prefHeight="26.0" prefWidth="87.0" />
                                              </children>
                                           </HBox>
                                        </children>
