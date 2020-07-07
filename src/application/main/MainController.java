@@ -6,11 +6,14 @@ import java.io.IOException;
 
 import application.App;
 import application.DataAnalyzer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -43,10 +46,16 @@ public class MainController {
 	@FXML private Label topOccurence;
 	@FXML private Label secondOccurrence;
 	@FXML private Label thirdOccurrence;
+	@FXML private ComboBox<Double> percentiles;
+	@FXML private Label valuesAboveLabel;
 	@FXML private Label percentileAvgLabel;
 	@FXML private Label numPercentilesLabel;
 
 	@FXML public void initialize() {
+		ObservableList<Double> percentilesList = FXCollections.observableArrayList(0.0, 10.0, 20.0, 30.0, 40.0,
+				50.0, 60.0, 70.0, 80.0, 90.0);
+		percentiles.setItems(percentilesList);
+		percentiles.setValue(90.0);
 		updateMainView();
 	}
 
@@ -157,9 +166,19 @@ public class MainController {
 		meanLabel.setText(String.valueOf(DataAnalyzer.getMean()));
 		medianLabel.setText(String.valueOf(DataAnalyzer.getMedian()));
 
-		//TODO Add updates for top 3 occurring
-		//TODO Add update for Percentile Average
-		//TODO Add update for Number of values above Percentile.
+		float[] occurrences = DataAnalyzer.getTopThreeOccuring();
+		topOccurence.setText("" + occurrences[0]);
+		secondOccurrence.setText("" + occurrences[1]);
+		thirdOccurrence.setText("" + occurrences[2]);
+		
+		float[] numAbovePercentiles = DataAnalyzer.getPercentile(percentiles.getValue());
+		String numToString = "";
+		for (int i = 0; i < numAbovePercentiles.length; i++) {
+			numToString += numAbovePercentiles[i] + "   ";
+		}
+		valuesAboveLabel.setText(numToString);
+		percentileAvgLabel.setText("" + DataAnalyzer.getAverageAbovePercentile(percentiles.getValue()));
+		numPercentilesLabel.setText("" + numAbovePercentiles.length);
 
 	}
 
@@ -215,6 +234,4 @@ public class MainController {
 		}
 		dataTablePane.getChildren().add(dataTable);
 	}
-
-	//TODO Add method to show all values above percentile in lower-right pane of MainView.fxml
 }

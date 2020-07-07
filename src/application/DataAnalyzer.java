@@ -177,11 +177,11 @@ public class DataAnalyzer {
     }
 
     //TODO Add Method to find all values above Percentile
-    public static float[] getPercentile(float percentile)
+    public static float[] getPercentile(double percentile)
     {
         float[] inPercentile = new float[0];
         percentile = percentile / 100;
-        float minToBeat = getMax() * percentile;
+        float minToBeat = (float) (getMax() * percentile);
 
         int count = 0;
         for(int i = 0; i < dataArray.size(); i++)
@@ -226,7 +226,7 @@ public class DataAnalyzer {
     }
 
     //TODO Add method to find the average of all values above Percentile.
-    public static float getAverageAbovePercentile(float percentile)
+    public static float getAverageAbovePercentile(double percentile)
     {
         float averageAbove = 0;
         float[] temp = getPercentile(percentile);
