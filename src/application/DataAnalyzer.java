@@ -74,6 +74,8 @@ public class DataAnalyzer {
     public static float getMedian(){
         float median;
 
+        if (dataArray.size() == 1) return dataArray.get(0);
+
         // If the size of the array is even, median is calculated by
         // taking the sum of the middle two indices and dividing by 2
         if(dataArray.size()%2 == 0) {
