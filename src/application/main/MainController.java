@@ -233,6 +233,17 @@ public class MainController {
 					if(dataArrayIndex >= dataArray.length) break;
 				}
 			}
+		} else if(gridSort == GridSort.VERTICAL && numColumns == 1) {
+			for (int rowIndex = 0; rowIndex < numRows; rowIndex++) {
+				Label label = new Label();
+				label.setText(String.valueOf(dataArray[dataArrayIndex++]));
+				label.setPrefHeight(30);
+				label.setPrefWidth(100);
+				label.setAlignment(Pos.CENTER);
+				label.setTextAlignment(TextAlignment.CENTER);
+				label.getStyleClass().add("dataTableLabel");
+				dataTable.add(label, 0, rowIndex);
+			}
 		} else { // if gridSort == GridSort.VERTICAL
 			for (int columnIndex = 0; columnIndex < numColumns; columnIndex++) {
 				for (int rowIndex = 0; rowIndex < numRows; rowIndex++) {
