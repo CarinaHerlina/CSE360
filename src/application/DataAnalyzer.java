@@ -121,6 +121,11 @@ public class DataAnalyzer {
             top3Array.add(null);
         }
 
+        float[] inputArray = new float[dataArray.size()];
+        for (int i = 0; i < inputArray.length; i++) {
+            inputArray[i] = dataArray.get(i);
+        }
+
         //Creating HashMap object with elements as keys and their occurrences as values
 
         HashMap<Float, Integer> elementCountMap = new HashMap<>();
