@@ -1,6 +1,7 @@
 package application;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -110,12 +111,14 @@ public class DataAnalyzer {
     }
 
     //TODO Add Method to find top 3 occurring values
-    public static float[] getTopThreeOccuring()
+
+    public static Object[] getTopThreeOccuring()
     {
-        float[] topThree = new float[3];
+        ArrayList<Float> top3Array = new ArrayList<>();
+
         for(int i = 0; i < 3; i++)
         {
-            topThree[i] = 0;
+            top3Array.add(null);
         }
 
         float[] inputArray = new float[dataArray.size()];
@@ -126,53 +129,56 @@ public class DataAnalyzer {
 
         //Creating HashMap object with elements as keys and their occurrences as values
 
-        HashMap<Float, Float> elementCountMap = new HashMap<Float, Float>();
+        HashMap<Float, Integer> elementCountMap = new HashMap<>();
 
         //Inserting all the elements of inputArray into elementCountMap
 
         for (int i = 0; i < inputArray.length; i++)
         {
-            if (elementCountMap.containsKey(i))
+            float currentElement = inputArray[i];
+            if (elementCountMap.containsKey(currentElement))
             {
                 //If an element is present, incrementing its count by 1
 
-                elementCountMap.put((float) i, elementCountMap.get(i)+1);
+                int freq = elementCountMap.get(currentElement);
+                freq++;
+                elementCountMap.put(currentElement, freq);
             }
             else
             {
                 //If an element is not present, put that element with 1 as its value
-
-                elementCountMap.put((float)i, (float)1);
+                elementCountMap.put(currentElement, 1);
             }
         }
-
-        int element = 0;
-
-        int frequency = 1;
 
         //Iterating through elementCountMap to get the most frequent element and its frequency
 
-        Set<Entry<Float, Float>> entrySet = elementCountMap.entrySet();
-        for(int i = 2; i >= 0; i--)
+        Set<Entry<Float, Integer>> entrySet = elementCountMap.entrySet();
+        for(int i = 0; i < 3; i++)
         {
-            for (Entry<Float, Float> entry : entrySet)
+
+            int max_count = 0;
+            float element = -1.0f;
+            for (Entry<Float, Integer> entry : entrySet)
             {
-                if(entry.getValue() > frequency)
-                {
-//                element = entry.getKey();
-//
-//                frequency = entry.getValue();
+                if(max_count < entry.getValue()) {
+
+                    element = entry.getKey();
+                    max_count = entry.getValue();
+
                 }
             }
-            if(topThree[i] != element)
-            {
-                topThree[i] = element;
+
+            // Only return non-unique numbers
+            if(elementCountMap.get(element) > 1) {
+                top3Array.set(i, element);
+                elementCountMap.remove(element);
             }
-            elementCountMap.remove(element);
+
             entrySet = elementCountMap.entrySet();
         }
 
-        return topThree;
+        return top3Array.toArray();
     }
 
     //TODO Add Method to find all values above Percentile

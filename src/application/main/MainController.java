@@ -175,11 +175,21 @@ public class MainController {
 		meanLabel.setText(meanLabelStr);
 		medianLabel.setText(medianLabelStr);
 
-		float[] occurrences = DataAnalyzer.getTopThreeOccuring();
-		topOccurence.setText("" + occurrences[0]);
-		secondOccurrence.setText("" + occurrences[1]);
-		thirdOccurrence.setText("" + occurrences[2]);
-		
+		Object[] occurrences = DataAnalyzer.getTopThreeOccuring();
+		topOccurence.setText("N/A");
+		secondOccurrence.setText("N/A");
+		thirdOccurrence.setText("N/A");
+
+		if(occurrences[0] != null) {
+			topOccurence.setText(occurrences[0].toString());
+		}
+		if(occurrences[1] != null) {
+			secondOccurrence.setText(occurrences[1].toString());
+		}
+		if(occurrences[2] != null) {
+			thirdOccurrence.setText(occurrences[2].toString());
+		}
+
 		float[] numAbovePercentiles = DataAnalyzer.getPercentile(percentiles.getValue());
 		String numToString = "";
 		for (int i = 0; i < numAbovePercentiles.length; i++) {
