@@ -119,19 +119,13 @@ public class DataAnalyzer {
             topThree[i] = 0;
         }
 
-        float[] inputArray = new float[dataArray.size()];
-        for(int i = 0; i < inputArray.length; i++)
-        {
-            inputArray[i] = dataArray.get(i);
-        }
-
         //Creating HashMap object with elements as keys and their occurrences as values
 
         HashMap<Float, Float> elementCountMap = new HashMap<Float, Float>();
 
         //Inserting all the elements of inputArray into elementCountMap
 
-        for (int i = 0; i < inputArray.length; i++)
+        for (int i = 0; i < dataArray.size(); i++)
         {
             if (elementCountMap.containsKey(i))
             {
