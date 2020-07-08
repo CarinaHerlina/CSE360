@@ -1,7 +1,6 @@
 package application;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -79,7 +78,7 @@ public class DataAnalyzer {
         // If the size of the array is even, median is calculated by
         // taking the sum of the middle two indices and dividing by 2
         if(dataArray.size()%2 == 0) {
-             median = (dataArray.get(dataArray.size()/2) + dataArray.get(dataArray.size()/2 + 1))/2;
+             median = (dataArray.get(dataArray.size()/2 - 1) + dataArray.get(dataArray.size()/2))/2;
         } else {
             median = dataArray.get(dataArray.size()/2);
         }
