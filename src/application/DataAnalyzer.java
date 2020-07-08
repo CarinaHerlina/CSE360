@@ -49,11 +49,6 @@ public class DataAnalyzer {
 
     private static void sortDataArray(){
         Collections.sort(dataArray);
-
-        for (Float dataPoint: dataArray) {
-            System.out.println(dataPoint);
-        }
-        System.out.println("\n Total Count: " + dataArray.size());
     }
 
     // reverseDataArray always set array to the reverse of sorted array
