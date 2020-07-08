@@ -164,8 +164,16 @@ public class MainController {
 	private void updateMainView(){
 		buildDataTable(numColumns, gridSort, numSort);
 
-		meanLabel.setText(String.valueOf(DataAnalyzer.getMean()));
-		medianLabel.setText(String.valueOf(DataAnalyzer.getMedian()));
+		String meanLabelStr, medianLabelStr;
+		if (DataAnalyzer.getDataArraySize() == 0) {
+			meanLabelStr = "N/A";
+			medianLabelStr = "N/A";
+		} else {
+			meanLabelStr = String.valueOf(DataAnalyzer.getMean());
+			medianLabelStr = String.valueOf(DataAnalyzer.getMedian());
+		}
+		meanLabel.setText(meanLabelStr);
+		medianLabel.setText(medianLabelStr);
 
 		float[] occurrences = DataAnalyzer.getTopThreeOccuring();
 		topOccurence.setText("" + occurrences[0]);
